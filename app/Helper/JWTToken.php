@@ -47,7 +47,7 @@ class JWTToken
    }
 
    //Verify Token
-   function VerifyToken($token): string
+   public static function VerifyToken($token): string
    {
       try {
          $key = env('JWT_KEY');

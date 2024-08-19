@@ -143,11 +143,11 @@ class UserController extends Controller
         if ($count == 1) {
 
             //Database OTP update
-            User::where('email', $email)->update(['otp' => $otp]);
+            User::where('email', $email)->update(['otp' => 0]);
 
 
             //user Password rest with token Issue
-            
+
             $token = JWTToken::CreateTokenSetPassword($request->input('email'));
             return response()->json(
                 [
@@ -161,6 +161,26 @@ class UserController extends Controller
             // return response()->json(['status' => 'success', 'message' => 'OTP verified successfully.'], 200);
         } else {
             return response()->json(['status' => 'failed', 'message' => 'OTP verification failed.'], 404);
+        }
+    }
+
+    function ResetPassword(Request $request)
+    {
+
+        try {
+
+            $email = $request->header('email');
+            $password = $request->input('password');
+            User::where('email', '=', $email)->update(['password' => $password]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Request Successfull'
+            ], status: 200);
+        } catch (Exception $ex) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Some thing went Worng...',
+            ], status: 401);
         }
     }
 }
