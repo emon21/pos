@@ -62,6 +62,11 @@
                         <a href="{{ url('/userProfile') }}" class="side-bar-item">
                             <span class="side-bar-item-caption">Profile</span>
                         </a>
+                        
+                        <a href="#" class="side-bar-item">
+                            <span class="side-bar-item-caption">Change Profile</span>
+                        </a>
+                        <hr class="user-divider" />
                         <a href="{{ url('/user-logout') }}" class="side-bar-item">
                             <span class="side-bar-item-caption">Logout</span>
                         </a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenVerification;
@@ -59,3 +60,10 @@ Route::get('resetPassword', [UserController::class, 'ResetPasswordPage'])->middl
 Route::get('/dashboard', [HomeController::class, 'DashboardPage'])->middleware(TokenVerification::class);
 //ProfilePage
 Route::get('userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
+
+
+# // Category Route  API//
+Route::post('create-category',[CategoryController::class,'CategoryCreate'])->middleware(TokenVerification::class);
+Route::get('list-category',[CategoryController::class,'CategoryList'])->middleware(TokenVerification::class);
+Route::post('delete-category',[CategoryController::class,'CategoryDelete'])->middleware(TokenVerification::class);
+Route::post('update-category',[CategoryController::class,'CategoryUpdate'])->middleware(TokenVerification::class);
