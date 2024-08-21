@@ -14,7 +14,7 @@ class JWTToken
 {
 
    //Create Token
-   public static function CreateToken($userEmail): string
+   public static function CreateToken($userEmail,$userID): string
    {
       //key
       $key = env('JWT_KEY');
@@ -22,7 +22,8 @@ class JWTToken
          'iss' => 'laravel-token',
          'iat' => time(),
          'exp' => time() + 60 * 60,
-         'userEmail' => $userEmail
+         'userEmail' => $userEmail,
+         'userID' => $userID
       ];
 
       //Token Generate
@@ -38,7 +39,8 @@ class JWTToken
          'iss' => 'laravel-token',
          'iat' => time(),
          'exp' => time() + 60 * 10 ,
-         'userEmail' => $userEmail
+         'userEmail' => $userEmail,
+         'userID' => '0'
       ];
 
       //Token Generate
@@ -47,12 +49,17 @@ class JWTToken
    }
 
    //Verify Token
-   public static function VerifyToken($token): string
+   public static function VerifyToken($token): string|object
    {
       try {
-         $key = env('JWT_KEY');
-         $decoded = JWT::decode($token, new Key($key, 'HS256'));
-         return $decoded->userEmail;
+         if($token==null){
+            return 'unauthorized';
+         }else{
+            $key = env('JWT_KEY');
+            $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            return $decoded;
+         }
+         
       } 
       catch (Exception $ex) {
          return 'unauthorized';

@@ -13,4 +13,9 @@ class HomeController extends Controller
 
         return view('pages.home');
     }
+    function DashboardPage()
+    {
+
+        return view('pages.dashboard.dashboard-page');
+    }
 }

@@ -25,21 +25,37 @@ use Illuminate\Support\Facades\Route;
 
 //user-registration
 Route::post('user-registration', [UserController::class, 'UserRegistration']);
-
 //user-login
 Route::post('user-login', [UserController::class, 'UserLogin']);
-
 //sent otp by email
 Route::post('send-otp', [UserController::class, 'SentOTPCode']);
 //verify otp
-Route::post('verify-otp',[UserController::class,'verifyOTP']);
+Route::post('verify-otp', [UserController::class, 'verifyOTP']);
 //Token Verify
-Route::post('reset-pass',[UserController::class,'ResetPassword'])->middleware([TokenVerification::class]);
+Route::post('reset-password', [UserController::class, 'ResetPassword'])->middleware([TokenVerification::class]);
+//logout
+Route::get('user-logout', [UserController::class, 'UserLogout']);
+//profile
+// Route::get('user-profile', [UserController::class, 'UserLogout']);
 
-//verify otp
-// Route::post('verify-otp', [UserController::class, 'VerifyOTP']);
+Route::get('user-profile', [UserController::class, 'UserProfile'])->middleware(TokenVerification::class);
+Route::post('update-profile', [UserController::class, 'UpdateProfile'])->middleware(TokenVerification::class);
 
-Route::get('home', [AuthorController::class, 'Home']);
+
 
 // Page Routes
 Route::get('/', [HomeController::class, 'HomePage']);
+//user-registration
+Route::get('userRegistration', [UserController::class, 'RegistrationPage']);
+//user-login
+Route::get('userLogin', [UserController::class, 'LoginPage']);
+//sent otp by email
+Route::get('sendOtp', [UserController::class, 'SentOTPPage']);
+//verify otp
+Route::get('verifyOtp', [UserController::class, 'verifyOtpPage']);
+//Token Verify
+Route::get('resetPassword', [UserController::class, 'ResetPasswordPage'])->middleware(TokenVerification::class);
+//dashboard
+Route::get('/dashboard', [HomeController::class, 'DashboardPage'])->middleware(TokenVerification::class);
+//ProfilePage
+Route::get('userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
