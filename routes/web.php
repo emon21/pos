@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenVerification;
@@ -61,6 +62,7 @@ Route::get('/dashboard', [HomeController::class, 'DashboardPage'])->middleware(T
 //ProfilePage
 Route::get('/userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
 Route::get('/categoryPage', [CategoryController::class, 'CategoryPage'])->middleware(TokenVerification::class);
+Route::get('/customerPage', [CustomerController::class, 'CustomerPage'])->middleware(TokenVerification::class);
 
 
 # // Category Route API//
@@ -69,3 +71,12 @@ Route::get('/list-category', [CategoryController::class, 'CategoryList'])->middl
 Route::post('/delete-category', [CategoryController::class, 'CategoryDelete'])->middleware(TokenVerification::class);
 Route::post('/category-by-id', [CategoryController::class, 'CategoryByID'])->middleware(TokenVerification::class);
 Route::post('/update-category', [CategoryController::class, 'CategoryUpdate'])->middleware(TokenVerification::class);
+
+# //Customer API Route
+Route::get('/list-customer', [CustomerController::class, 'CustomerList'])->middleware(TokenVerification::class);
+Route::post('/create-customer', [CustomerController::class, 'CreateCustomer'])->middleware(TokenVerification::class);
+Route::post('/delete-customer', [CustomerController::class, 'DeleteCustomer'])->middleware(TokenVerification::class);
+Route::post('/customer-by-id', [CustomerController::class, 'CustomerByID'])->middleware(TokenVerification::class);
+Route::post('/update-customer', [CustomerController::class, 'UpdateCustomer'])->middleware(TokenVerification::class);
+
+

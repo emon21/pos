@@ -59,3 +59,13 @@ a:hover {
   box-shadow: none !important;
 }
 
+
+a.side-bar-item.active {
+  background: blue;
+  color: #f1eceb;
+}
+
+a.side-bar-item.active span {
+  color: white;
+}
+

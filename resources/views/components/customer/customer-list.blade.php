@@ -4,7 +4,7 @@
             <div class="card px-5 py-5">
                 <div class="row justify-content-between ">
                     <div class="align-items-center col">
-                        <h4>Category</h4>
+                        <h4>Customer</h4>
                     </div>
                     <div class="align-items-center col">
                         <button data-bs-toggle="modal" data-bs-target="#create-modal"
@@ -12,13 +12,14 @@
                     </div>
                 </div>
                 <hr class="bg-secondary" />
-                <div class="table-responsive">
+                <div class="table-responsive table-striped table-bordered">
                     <table class="table" id="tableData">
                         <thead>
                             <tr class="bg-light">
                                 <th>No</th>
-                                <th>Category</th>
-                                <th>User</th>
+                                <th>Customer Name</th>
+                                <th>Customer Email</th>
+                                <th>Mobile No</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,7 +39,7 @@
     async function getList() {
 
         showLoader();
-        let res = await axios.get("/list-category");
+        let res = await axios.get("/list-customer");
         hideLoader();
 
 
@@ -53,7 +54,8 @@
             let row = `<tr>
                      <td>${index+1}</td>
                      <td>${item['name']}</td>
-                     <td>${item['user']['firstName']}</td>
+                     <td>${item['email']}</td>
+                     <td>${item['mobile']}</td>
                      <td>
                         <button data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
                         <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
@@ -78,16 +80,6 @@
             $('#update-modal').modal('show');
         });
 
-        // $('.editBtn').on('click', async function() {
-        //     let id = $(this).data('id');
-        //     await FillupUpdateForm(id)
-        //     $('#update-modal').modal('show');
-        // });
-
-
-
-
-
         //Delete
         $('.deleteBtn').on('click', function() {
             let id = $(this).data('id');
@@ -107,24 +99,4 @@
 
         });
     }
-
-
-    // document.getElementById('tableData').addEventListener('click', async function(e) {
-
-    //             if (e.target.classList.contains('deleteBtn')) {
-    //                 let id = e.target.dataset.id;
-    //                 $("#delete-modal").modal('show');
-    //                 $("#deleteID").val(id);
-    //             }
-
-    //         });
-
-
-    // $('.editBtn').on('click', async function() {
-
-    //     let id = $(this).data('id');
-    //     await FillUpUpdateForm(id)
-    //     $("#update-modal").modal('show');
-
-    // }
 </script>
