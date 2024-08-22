@@ -59,11 +59,13 @@ Route::get('resetPassword', [UserController::class, 'ResetPasswordPage'])->middl
 //dashboard
 Route::get('/dashboard', [HomeController::class, 'DashboardPage'])->middleware(TokenVerification::class);
 //ProfilePage
-Route::get('userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
+Route::get('/userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
+Route::get('/categoryPage', [CategoryController::class, 'CategoryPage'])->middleware(TokenVerification::class);
 
 
-# // Category Route  API//
-Route::post('create-category',[CategoryController::class,'CategoryCreate'])->middleware(TokenVerification::class);
-Route::get('list-category',[CategoryController::class,'CategoryList'])->middleware(TokenVerification::class);
-Route::post('delete-category',[CategoryController::class,'CategoryDelete'])->middleware(TokenVerification::class);
-Route::post('update-category',[CategoryController::class,'CategoryUpdate'])->middleware(TokenVerification::class);
+# // Category Route API//
+Route::post('/create-category', [CategoryController::class, 'CategoryCreate'])->middleware(TokenVerification::class);
+Route::get('/list-category', [CategoryController::class, 'CategoryList'])->middleware(TokenVerification::class);
+Route::post('/delete-category', [CategoryController::class, 'CategoryDelete'])->middleware(TokenVerification::class);
+Route::post('/category-by-id', [CategoryController::class, 'CategoryByID'])->middleware(TokenVerification::class);
+Route::post('/update-category', [CategoryController::class, 'CategoryUpdate'])->middleware(TokenVerification::class);
