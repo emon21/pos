@@ -7,6 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Project Feature [ List ]
+- Registration
+- Login
+- Token Base Authentication
+- Email Verification
+- Sent OTP By Email
+- Reset Password
+- JWT Token Setup
+- [ Backend ]
+- Category Crud
+- Customer CRUD
+- Product CRUD With View Single Data
+- Model Base CRUD With Axios
+
+  ## Demo
+
+  
+  
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -21,16 +40,16 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-Setup
+## Setup
 
 # Clone the repo
-git clone https://github.com/devboyarif/leave-management-system.git
+git clone https://github.com/project link
 
 # Install composer dependency
 composer install
 
 # Install node modules
-npm install / yarn
+npm install && npm run dev OR  yarn use this command
 
 # Copy environment file
 cp .env.example .env
@@ -42,6 +61,8 @@ php artisan key:generate
 php artisan migrate 
         OR
 php artisan migrate --seed
+
+
 
 
 
