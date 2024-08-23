@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenVerification;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,10 @@ Route::get('/dashboard', [HomeController::class, 'DashboardPage'])->middleware(T
 Route::get('/userProfile', [UserController::class, 'ProfilePage'])->middleware(TokenVerification::class);
 Route::get('/categoryPage', [CategoryController::class, 'CategoryPage'])->middleware(TokenVerification::class);
 Route::get('/customerPage', [CustomerController::class, 'CustomerPage'])->middleware(TokenVerification::class);
+Route::get('/productPage', [ProductController::class, 'productPage'])->middleware(TokenVerification::class);
+
+
+
 
 
 # // Category Route API//
@@ -80,3 +85,15 @@ Route::post('/customer-by-id', [CustomerController::class, 'CustomerByID'])->mid
 Route::post('/update-customer', [CustomerController::class, 'UpdateCustomer'])->middleware(TokenVerification::class);
 
 
+
+# // Product API Route
+Route::get('product-list', [ProductController::class, 'ProductList'])->middleware(TokenVerification::class);
+Route::post('create-product', [ProductController::class, 'CreateProduct'])->middleware(TokenVerification::class);
+Route::post('delete-product', [ProductController::class, 'DeleteProduct'])->middleware(TokenVerification::class);
+Route::post('product-by-id', [ProductController::class, 'ProductByID'])->middleware(TokenVerification::class);
+Route::post('update-product', [ProductController::class, 'UpdateProduct'])->middleware(TokenVerification::class);
+//show product by category
+Route::get('show-product-by-category', [ProductController::class, 'ShowProductByCategory'])->middleware(TokenVerification::class);
+
+//single product
+Route::post('single-product', [ProductController::class, 'SingleProduct'])->middleware(TokenVerification::class);
