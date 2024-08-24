@@ -42,8 +42,6 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 # Clone the repo
 
-git clone https://github.com/project link
-
 # Install composer dependency
 
 composer install
