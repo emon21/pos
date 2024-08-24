@@ -42,7 +42,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 # Clone the repo
 
-git clone https://github.com/emon21/pos.git
+git clone [https://github.com/emon21/pos.git]
 
 # Install composer dependency
 
