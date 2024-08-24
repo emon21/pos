@@ -9,6 +9,25 @@
 
 ## Project Feature [ List ]
 
+<<<<<<< HEAD
+
+-   Registration
+-   Login
+-   Token Base Authentication
+-   Email Verification
+-   Sent OTP By Email
+-   Reset Password
+-   JWT Token Setup
+-   [ Backend ]
+-   Category Crud
+-   Customer CRUD
+-   Product CRUD With View Single Data
+-   Model Base CRUD With Axios
+
+        ## Demo
+
+    =======
+
 -   Registration
 -   Login
 -   Token Base Authentication
@@ -23,6 +42,8 @@
 -   Model Base CRUD With Axios
 
     ## Demo
+
+> > > > > > > d7a63176c94e5a88925c4a74223e17da09cfe34f
 
 ## About Laravel
 
@@ -41,6 +62,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Setup
 
 # Clone the repo
+
+git clone https://github.com/emon21/pos.git
 
 # Install composer dependency
 
