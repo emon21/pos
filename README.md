@@ -9,8 +9,6 @@
 
 ## Project Feature [ List ]
 
-<<<<<<< HEAD
-
 -   Registration
 -   Login
 -   Token Base Authentication
@@ -23,27 +21,14 @@
 -   Customer CRUD
 -   Product CRUD With View Single Data
 -   Model Base CRUD With Axios
+-   Invoice && Print
+-   Report Generate
+-   Dom PDF using Invoice Create
 
-        ## Demo
 
-    =======
-
--   Registration
--   Login
--   Token Base Authentication
--   Email Verification
--   Sent OTP By Email
--   Reset Password
--   JWT Token Setup
--   [ Backend ]
--   Category Crud
--   Customer CRUD
--   Product CRUD With View Single Data
--   Model Base CRUD With Axios
 
     ## Demo
 
-> > > > > > > d7a63176c94e5a88925c4a74223e17da09cfe34f
 
 ## About Laravel
 
