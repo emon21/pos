@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
     //
-    function productPage()
+    function ProductPage()
     {
         return view('pages.dashboard.product-page');
     }
