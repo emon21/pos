@@ -35,13 +35,6 @@ class CategoryController extends Controller
         return $category;
     }
 
-    // function CategoryCreate(Request $request){
-    //     $user_id=$request->header('id');
-    //     return Category::create([
-    //         'name'=>$request->input('name'),
-    //         'user_id'=>$user_id
-    //     ]);
-    // }
 
     //Edit Method
     function CategoryEdit(Request $request) {}

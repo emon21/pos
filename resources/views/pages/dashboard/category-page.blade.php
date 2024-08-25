@@ -1,4 +1,4 @@
-@extends('layout.sidenav-layout')
+@extends('layout.sidenav-layout',['title' => 'Category'])
 @section('content')
     @include('components.category.category-list')
     @include('components.category.category-create')

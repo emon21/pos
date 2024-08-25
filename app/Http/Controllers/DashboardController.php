@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -38,7 +39,8 @@ class DashboardController extends Controller
             'invoice' => $invoice,
             'total' => round($total, 2),
             'vat' => round($vat, 2),
-            'payable' => round($payable, 2)
+            'payable' => round($payable, 2),
+
         ];
     }
 }

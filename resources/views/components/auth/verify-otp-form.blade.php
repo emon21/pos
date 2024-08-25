@@ -18,7 +18,7 @@
      async function VerifyOtp() {
 
         let otp = document.getElementById('otp').value;
-        if (otp.length === 0) {
+        if (otp.length !== 4) {
             errorToast('Invalid OTP');
         } 
         else {

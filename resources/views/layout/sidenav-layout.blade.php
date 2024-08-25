@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title></title>
+    {{-- <title>@stack('title')</title> --}}
+    <title>{{ $title ?? config('app.name') }}</title>
+
 
     <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}" />
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
@@ -110,17 +112,17 @@
             <span class="side-bar-item-caption">Product</span>
         </a>
 
-        <a href="{{ url('/salePage') }}" class="side-bar-item">
+        <a href="{{ url('/salePage') }}" class="side-bar-item {{ request()->is('salePage') ? 'active' : '' }}">
             <i class="bi bi-currency-dollar"></i>
             <span class="side-bar-item-caption">Create Sale</span>
         </a>
 
-        <a href="{{ url('/invoicePage') }}" class="side-bar-item">
+        <a href="{{ url('/invoicePage') }}" class="side-bar-item {{ request()->is('invoicePage') ? 'active' : '' }}">
             <i class="bi bi-receipt"></i>
             <span class="side-bar-item-caption">Invoice</span>
         </a>
 
-        <a href="{{ url('/reportPage') }}" class="side-bar-item">
+        <a href="{{ url('/reportPage') }}" class="side-bar-item {{ request()->is('reportPage') ? 'active' : '' }}">
             <i class="bi bi-file-earmark-bar-graph"></i>
             <span class="side-bar-item-caption">Report</span>
         </a>
@@ -132,6 +134,7 @@
     <div id="contentRef" class="content">
         @yield('content')
     </div>
+
 
 
 

@@ -91,43 +91,19 @@ class ProductController extends Controller
         $product_id = $request->input('id');
 
         //file check
-        // $img = $request->file('img');
-        // if($img != null) {
-        //     $time = Time();
-        //     $file_name = $img->getClientOriginalExtension();
-        //     $img_name = $time .'.'. $file_name;
-        //     $img_url = "uploads/{$img_name}";
-        //     $img->move(public_path('uploads'), $img_name);
-        //     $product = Product::where('id', $product_id)->where('user_id', $user_id)->update([
-        //         'name' => $request->input('name'),
-        //         'price' => $request->input('price'),
-        //         'unit' => $request->input('unit'),
-        //         'img_url' => $img_url,
-        //         'category_id' => $request->input('category_id'),
-        //     ]);
-        //     return $product;
-        // } else {
-        //     $product = Product::where('id', $product_id)->where('user_id', $user_id)->update([
-        //         'name' => $request->input('name'),
-        //         'price' => $request->input('price'),
-        //         'unit' => $request->input('unit'),
-        //         'category_id' => $request->input('category_id'),
-        //     ]);
-        //     return $product;
-        // }
-
+        
         // $img = $request->hasFile('img');
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
             $time = Time();
             $file_name = $img->getClientOriginalExtension();
+            
             $img_name = $time . '.' . $file_name;
             $img_url = "uploads/{$img_name}";
             $img->move(public_path('uploads'), $img_name);
 
             //Delete OLD File
-            // $product = Product::where('id', $product_id)->where('user_id', $user_id)->first();
             $old_img_url = $request->input('file_path');
             unlink(public_path($old_img_url));
             // File::delete($old_img_url);

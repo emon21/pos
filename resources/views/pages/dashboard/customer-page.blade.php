@@ -1,4 +1,4 @@
-@extends('layout.sidenav-layout')
+@extends('layout.sidenav-layout',['title' => 'Customer'])
 @section('content')
     @include('components.customer.customer-list')
     @include('components.customer.customer-create')
